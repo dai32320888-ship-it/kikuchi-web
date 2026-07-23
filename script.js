@@ -1,148 +1,154 @@
-/**
- * 菊地Web制作所 — 営業用LP
- * 問い合わせリンクはここで一括管理できます（HTMLの href より優先）
- */
 const CONTACT_LINKS = {
   instagram: "https://www.instagram.com/kikuchi_web_design/",
   email: "mailto:kikuchi.web.work@gmail.com",
   x: "https://x.com/darui_tsubushi",
-  note: "#",
-};
-
-const INQUIRY_PRESETS = {
-  diagnosis: {
-    type: "ホームページ無料診断",
-    details: "ホームページ無料診断を希望します。\n\n現在困っていること：\n",
-  },
-  repair: {
-    type: "ホームページ修正",
-    details: "ホームページの修正について相談したいです。\n\n修正したい内容：\n",
-  },
-  production: {
-    type: "新規ホームページ制作",
-    details: "ホームページ制作について相談したいです。\n\n希望する内容：\n",
-  },
-  management: {
-    type: "更新・管理",
-    details: "ホームページの更新・管理について相談したいです。\n\n希望する内容：\n",
-  },
 };
 
 (function () {
   "use strict";
 
-  // 問い合わせリンクを設定
   document.querySelectorAll("[data-contact]").forEach(function (link) {
     var key = link.getAttribute("data-contact");
-    if (CONTACT_LINKS[key] && CONTACT_LINKS[key] !== "#") {
+    if (CONTACT_LINKS[key]) {
       link.setAttribute("href", CONTACT_LINKS[key]);
-      link.removeAttribute("aria-disabled");
-      link.removeAttribute("title");
-      link.classList.remove("is-disabled");
-    } else {
-      link.removeAttribute("href");
-      link.setAttribute("aria-disabled", "true");
-      link.setAttribute("title", "リンクは公開準備中です");
-      link.classList.add("is-disabled");
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-      });
     }
   });
 
-  // フッターの年表示
   var yearEl = document.getElementById("year");
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  // モバイルナビ
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("site-nav");
+
+  function closeNav() {
+    if (!toggle || !nav) return;
+    nav.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "メニューを開く");
+  }
 
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
       var isOpen = nav.classList.toggle("is-open");
+      document.body.classList.toggle("nav-open", isOpen);
       toggle.setAttribute("aria-expanded", String(isOpen));
       toggle.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
     });
 
     nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "メニューを開く");
-      });
+      link.addEventListener("click", closeNav);
     });
 
-    document.addEventListener("click", function (e) {
-      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "メニューを開く");
+    document.addEventListener("click", function (event) {
+      if (!nav.classList.contains("is-open")) return;
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+        closeNav();
       }
     });
 
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && nav.classList.contains("is-open")) {
-        nav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "メニューを開く");
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        closeNav();
         toggle.focus();
       }
     });
   }
 
-  // サービスページからの相談内容をフォームへ反映
-  var inquiryType = document.getElementById("inquiry-type");
-  var inquiryDetails = document.getElementById("inquiry-details");
-  var inquiryKey = new URLSearchParams(window.location.search).get("inquiry");
-  var preset = inquiryKey ? INQUIRY_PRESETS[inquiryKey] : null;
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener("click", function (event) {
+      var id = anchor.getAttribute("href");
+      if (!id || id === "#") return;
 
-  if (preset && inquiryType && inquiryDetails) {
-    inquiryType.value = preset.type;
-    if (!inquiryDetails.value) {
-      inquiryDetails.value = preset.details;
-    }
+      var target = document.querySelector(id);
+      if (!target) return;
+
+      event.preventDefault();
+      var header = document.querySelector(".site-header");
+      var offset = header ? header.offsetHeight + 10 : 0;
+      var top = target.getBoundingClientRect().top + window.scrollY - offset;
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      window.scrollTo({ top: top, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  });
+
+  document.querySelectorAll("[data-track]").forEach(function (element) {
+    element.addEventListener("click", function () {
+      var eventName = element.getAttribute("data-track");
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "kikuchi_lp_click",
+        event_label: eventName,
+      });
+    });
+  });
+
+  var mobileCta = document.getElementById("mobile-cta");
+  var closeMobileCta = document.querySelector(".mobile-sticky-cta__close");
+  if (mobileCta) {
+    document.body.classList.add("has-mobile-cta");
+  }
+  if (closeMobileCta && mobileCta) {
+    closeMobileCta.addEventListener("click", function () {
+      mobileCta.hidden = true;
+      document.body.classList.remove("has-mobile-cta");
+    });
   }
 
-  // 入力内容をメール本文にまとめてメールアプリを開く
-  var contactForm = document.getElementById("contact-form");
-  var formStatus = document.getElementById("contact-form-status");
+  var form = document.getElementById("contact-form");
+  var status = document.getElementById("form-status");
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-      if (!contactForm.reportValidity()) return;
+      var invalidFields = [];
+      form.querySelectorAll("[required]").forEach(function (field) {
+        field.classList.remove("is-invalid");
+        if (!field.value.trim()) {
+          invalidFields.push(field);
+          field.classList.add("is-invalid");
+        }
+      });
 
-      var formData = new FormData(contactForm);
-      var subject = "【菊地Web制作所】" + formData.get("inquiryType");
+      var email = form.elements.email;
+      if (email && email.value && !email.validity.valid) {
+        invalidFields.push(email);
+        email.classList.add("is-invalid");
+      }
+
+      if (invalidFields.length > 0) {
+        if (status) {
+          status.textContent = "未入力または形式が違う項目があります。確認してください。";
+        }
+        invalidFields[0].focus();
+        return;
+      }
+
+      var data = new FormData(form);
+      var subject = "無料店舗Web診断の相談";
       var body = [
-        "【お名前】",
-        formData.get("name"),
+        "お名前: " + data.get("name"),
+        "店名または事業名: " + data.get("business"),
+        "URL: " + (data.get("urls") || "未記入"),
+        "希望する連絡方法: " + data.get("contact_method"),
+        "返信先メールアドレス: " + data.get("email"),
         "",
-        "【店舗名・会社名】",
-        formData.get("business") || "未入力",
-        "",
-        "【メールアドレス】",
-        formData.get("email"),
-        "",
-        "【相談内容】",
-        formData.get("inquiryType"),
-        "",
-        "【ホームページURL】",
-        formData.get("website") || "未入力",
-        "",
-        "【InstagramなどのSNS URL】",
-        formData.get("social") || "未入力",
-        "",
-        "【困っていること・希望内容】",
-        formData.get("details"),
-      ].join("\r\n");
+        "相談内容:",
+        data.get("message"),
+      ].join("\n");
 
-      if (formStatus) {
-        formStatus.textContent = "メール作成画面を開いています。内容を確認して送信してください。";
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "kikuchi_lp_form_submit",
+        event_label: "contact-form-submit",
+      });
+
+      if (status) {
+        status.textContent = "メール作成画面を開きます。内容を確認して送信してください。";
       }
 
       window.location.href =
@@ -153,22 +159,4 @@ const INQUIRY_PRESETS = {
         encodeURIComponent(body);
     });
   }
-
-  // スムーズスクロール（ヘッダー分オフセット）
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener("click", function (e) {
-      var id = anchor.getAttribute("href");
-      if (!id || id === "#") return;
-
-      var target = document.querySelector(id);
-      if (!target) return;
-
-      e.preventDefault();
-      var header = document.querySelector(".site-header");
-      var offset = header ? header.offsetHeight + 8 : 0;
-      var top = target.getBoundingClientRect().top + window.scrollY - offset;
-
-      window.scrollTo({ top: top, behavior: "smooth" });
-    });
-  });
 })();
