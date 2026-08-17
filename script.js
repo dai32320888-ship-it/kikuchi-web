@@ -129,10 +129,11 @@ const CONTACT_LINKS = {
       }
 
       var data = new FormData(form);
-      var subject = "無料店舗Web診断の相談";
+      var subject = "無料店舗診断の相談";
       var body = [
         "お名前: " + data.get("name"),
         "店名または事業名: " + data.get("business"),
+        "ご相談の種類: " + (data.get("topic") || "未記入"),
         "URL: " + (data.get("urls") || "未記入"),
         "希望する連絡方法: " + data.get("contact_method"),
         "返信先メールアドレス: " + data.get("email"),

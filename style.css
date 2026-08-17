@@ -88,6 +88,13 @@ strong {
   margin-inline: auto;
 }
 
+.section[id],
+.mise-product,
+#contact,
+#faq {
+  scroll-margin-top: 84px;
+}
+
 .skip-link {
   position: absolute;
   top: 12px;
@@ -477,6 +484,10 @@ strong {
   box-shadow: var(--shadow);
 }
 
+.example-card:nth-child(1) {
+  border-top: 4px solid var(--green);
+}
+
 .example-card:nth-child(2) {
   border-top: 4px solid var(--blue);
 }
@@ -552,6 +563,30 @@ strong {
   margin-bottom: 12px;
   color: var(--muted);
   font-size: 0.94rem;
+}
+
+.example-meta {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.example-meta div {
+  padding: 0;
+  border: 0;
+}
+
+.example-meta dt {
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.example-meta dd {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 .example-card .btn {
@@ -1043,6 +1078,10 @@ strong {
   gap: 18px;
 }
 
+.service-grid + .service-grid {
+  margin-top: 18px;
+}
+
 .service-card {
   position: relative;
   display: flex;
@@ -1199,6 +1238,272 @@ strong {
   font-size: 0.86rem;
 }
 
+.pillar-grid,
+.mise-grid,
+.pack-grid,
+.price-simple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.pillar-card,
+.mise-card,
+.pack-card,
+.price-simple article {
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.pillar-card {
+  border-top: 4px solid var(--green);
+}
+
+.pillar-card:nth-child(2) {
+  border-top-color: var(--blue);
+}
+
+.pillar-card:nth-child(3) {
+  border-top-color: var(--yellow);
+}
+
+.pillar-num,
+.mise-card__target {
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.pillar-card h3,
+.mise-card h3,
+.pack-card h3,
+.price-simple h3 {
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+  line-height: 1.45;
+}
+
+.pillar-card p,
+.mise-card p,
+.pack-card p {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.pillar-card ul,
+.pack-card ul {
+  display: grid;
+  gap: 8px;
+}
+
+.pillar-card li,
+.pack-card li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.pillar-card li::before,
+.pack-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.mise-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mise-card__target {
+  color: var(--muted);
+}
+
+.mise-card__benefit {
+  flex: 1;
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.mise-card__price {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.mise-card .btn,
+.pack-card .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+.pack-card__goal {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pack-note,
+.flow-note {
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--yellow);
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.price-simple article {
+  display: grid;
+  align-content: start;
+}
+
+.price-simple .price {
+  margin-bottom: 8px;
+}
+
+.price-simple p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.price-include {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+
+.price-include li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.price-include li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.price-flow {
+  margin-top: 20px;
+  padding: 18px 20px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.mise-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.mise-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.7fr);
+  gap: 32px;
+  align-items: center;
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+.mise-product__copy .tag {
+  margin-bottom: 12px;
+}
+
+.mise-product__copy h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.mise-product__copy p {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+.app-phone {
+  width: min(280px, 100%);
+  margin-inline: auto;
+  padding: 12px 10px 16px;
+  background: #202421;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.app-phone__screen {
+  overflow: hidden;
+  background: #f7f8f5;
+  border-radius: 18px;
+}
+
+.app-phone__head {
+  padding: 14px 14px 12px;
+  color: var(--white);
+  background: var(--green-dark);
+}
+
+.app-phone__head strong {
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.app-phone__head span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+}
+
+.app-phone__list {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+}
+
+.app-phone__list p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.app-phone__list span {
+  color: var(--muted);
+  font-weight: 600;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1293,8 +1598,16 @@ strong {
 
   .example-grid,
   .benefit-grid,
-  .assurance-list {
+  .assurance-list,
+  .pillar-grid,
+  .mise-grid,
+  .pack-grid,
+  .price-simple {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mise-product {
+    grid-template-columns: 1fr;
   }
 
   .price-grid {
@@ -1317,7 +1630,11 @@ strong {
 @media (max-width: 680px) {
   .example-grid,
   .benefit-grid,
-  .assurance-list {
+  .assurance-list,
+  .pillar-grid,
+  .mise-grid,
+  .pack-grid,
+  .price-simple {
     grid-template-columns: 1fr;
   }
 
@@ -1387,7 +1704,7 @@ strong {
     text-align: center;
   }
 
-  .hero-facts li:nth-child(n + 3) {
+  .hero-facts li:last-child {
     grid-column: 1 / -1;
   }
 
@@ -1435,6 +1752,10 @@ strong {
 
   .example-card__image {
     height: 320px;
+  }
+
+  .mise-product {
+    padding: 20px;
   }
 
   .profile__photo {

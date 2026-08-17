@@ -1,5 +1,7 @@
 # 菊地Web制作所 LP 運用メモ
 
+熊本の個人店・小規模店舗向けに、Web制作・集客改善・みせシリーズを案内する営業サイトです。
+
 ## 問い合わせフォーム
 
 現在のフォームは GitHub Pages だけで使える暫定方式です。送信ボタンを押すと、入力内容を本文に入れたメール作成画面が開きます。
@@ -12,20 +14,33 @@ Formspree などの外部フォームサービスを使う場合は、架空ID�
 
 ## 制作事例
 
-現在の制作事例は、実在案件ではなく「自主制作・架空店舗のデザイン例」として作成したデモページです。
+現在の制作事例は、実在案件ではなく「自主制作・架空店舗」として作成したデモページです。
 
-- カフェ / 編集・世界観重視: `examples/cafe.html`
-- 美容室・床屋 / 予約導線重視: `examples/salon.html`
-- バー / 雰囲気重視: `examples/bar.html`
-- 整備工場 / 実用・症状相談重視: `examples/garage.html`
-- 建設業 / 信頼・相談ハードル重視: `examples/builder.html`
+- カフェ: `examples/cafe.html`
+- 美容室: `examples/salon.html`
+- バー: `examples/bar.html`
+- 整備工場: `examples/garage.html`
+- 工務店: `examples/builder.html`
 - 共通CSS: `examples/example-style.css`
-- 各事例のヒーロー画像: `images/examples/*-hero.webp`（1600 x 900px）
+- 各事例のヒーロー画像: `images/examples/*-hero.webp`
 - トップページ掲載画像: `images/examples/*-demo.webp`
 
-実在店舗の事例に差し替える場合は、掲載許可を取ったうえで、ページ内とカード内の `自主制作・架空店舗のデザイン例` 表記を適切な表現に変更してください。許可のない店名、写真、口コミ、成果数値は掲載しないでください。
+実在店舗の事例に差し替える場合は、掲載許可を取ったうえで、ページ内とカード内の `自主制作・架空店舗` 表記を適切な表現に変更してください。許可のない店名、写真、口コミ、成果数値は掲載しないでください。
 
-デモページを更新した場合は、スマホ幅 390px 程度でスクリーンショットを撮り直し、`images/examples/*-demo.webp` を更新してください。ヒーロー画像を差し替える場合は、文字やロゴの入っていない横長画像をWebP形式で用意し、実在店舗の写真を使うときは掲載許可を確認してください。
+## みせシリーズ
+
+店舗向け業務アプリの案内です。確定価格としては固定せず、`月980円〜` と「店舗に合わせてご提案」を併記しています。
+
+- 案内ページ: `mise/index.html`
+- 商品: みせ予約 / みせ日報 / みせシフト / みせ在庫 / みせボトル / みせカルテ
+- 掲載画面は実アプリではなく、営業用のサンプルです
+- ボタン表記は「画面イメージを見る」
+
+## SEO・共有画像
+
+- OGP / X共有画像: `images/ogp-v2.jpg`（1200 x 630px）
+- favicon: `images/favicon.png`
+- Search Console確認ファイル、`robots.txt`、`sitemap.xml` は既存構成を維持しています。
 
 ## 計測
 
@@ -40,9 +55,3 @@ Google Analytics などの解析IDは未設定です。架空IDは追加して�
 - 制作事例: `example-click`
 - 料金を見る: `pricing-nav`
 - サービス・料金詳細: `pricing-detail`
-
-## SEO・共有画像
-
-- OGP / X共有画像: `images/ogp-v2.jpg`（1200 x 630px）
-- favicon: `images/favicon.png`
-- Search Console確認ファイル、`robots.txt`、`sitemap.xml` は既存構成を維持しています。
