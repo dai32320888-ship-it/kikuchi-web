@@ -1419,6 +1419,56 @@ strong {
   font-weight: 800;
 }
 
+.sns-subtitle {
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.sns-problem-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sns-problem-list li {
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.sns-flow {
+  margin-top: 28px;
+}
+
+.sns-flow__title {
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.sns-note {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.sns-section .check-list {
+  margin: 0;
+}
+
 .mise-stack {
   display: grid;
   gap: 18px;
