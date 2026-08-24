@@ -1819,3 +1819,771 @@ strong {
     gap: 2px;
   }
 }
+
+/* みせシリーズ販売ページ */
+.mise-sales-hero {
+  padding: 68px 0 72px;
+  background:
+    linear-gradient(90deg, rgba(35, 102, 70, 0.055) 0 1px, transparent 1px 100%),
+    linear-gradient(135deg, #f8faf7 0%, #eef4ef 58%, #f8f2df 100%);
+  background-size: 28px 28px, auto;
+  border-bottom: 1px solid var(--line);
+}
+
+.mise-sales-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 54px;
+  align-items: center;
+}
+
+.mise-sales-hero .breadcrumb {
+  margin-bottom: 20px;
+}
+
+.mise-sales-hero__eyebrow {
+  margin-bottom: 10px;
+  color: var(--green);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.mise-sales-hero__title {
+  margin-bottom: 18px;
+  font-size: clamp(2.55rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.16;
+}
+
+.mise-sales-hero__lead {
+  max-width: 700px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.16rem);
+  line-height: 1.85;
+}
+
+.mise-sales-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.mise-sales-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mise-sales-facts li {
+  padding: 7px 11px;
+  color: var(--green-dark);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.mise-sales-price-panel {
+  position: relative;
+  padding: 32px;
+  overflow: hidden;
+  color: var(--white);
+  background: var(--green-dark);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.mise-sales-price-panel::after {
+  content: "";
+  position: absolute;
+  right: -52px;
+  bottom: -58px;
+  width: 150px;
+  height: 150px;
+  border: 28px solid rgba(242, 197, 82, 0.13);
+  border-radius: 50%;
+}
+
+.mise-sales-price-panel p,
+.mise-sales-price-panel strong {
+  color: inherit;
+}
+
+.mise-sales-price-panel__label {
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.mise-sales-price-panel__price {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 4px 0 12px;
+}
+
+.mise-sales-price-panel__price strong {
+  color: var(--yellow);
+  font-size: clamp(3.3rem, 6vw, 4.5rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.mise-sales-price-panel__price span:last-child {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.mise-sales-price-panel__pc {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 20px 0 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+}
+
+.mise-sales-price-panel > a {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--yellow);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mise-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mise-problem-grid p {
+  position: relative;
+  padding: 16px 18px 16px 48px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.mise-problem-grid p::before {
+  content: "?";
+  position: absolute;
+  top: 16px;
+  left: 17px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: var(--white);
+  background: var(--coral);
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.mise-solution-line {
+  margin-top: 24px;
+  padding: 19px 22px;
+  background: #fff7dd;
+  border-left: 5px solid var(--yellow);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.mise-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mise-sales-product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 26px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.mise-sales-product__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+  color: var(--white);
+  background: var(--green);
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+.mise-sales-product:nth-child(2n) .mise-sales-product__icon {
+  background: var(--blue);
+}
+
+.mise-sales-product:nth-child(3n) .mise-sales-product__icon {
+  color: var(--ink);
+  background: var(--yellow);
+}
+
+.mise-sales-product__for {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.mise-sales-product h3 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+.mise-sales-product__catch {
+  margin-bottom: 10px;
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+.mise-sales-product > p:not(.mise-sales-product__for, .mise-sales-product__catch, .mise-sales-product__note) {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.mise-sales-product ul {
+  display: grid;
+  gap: 7px;
+  margin-top: auto;
+}
+
+.mise-sales-product li,
+.mise-check-list li,
+.mise-extra-card li,
+.mise-monitor li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.mise-sales-product li::before,
+.mise-check-list li::before,
+.mise-extra-card li::before,
+.mise-monitor li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.mise-sales-product__note {
+  margin-top: 14px;
+  padding: 10px 12px;
+  color: #704329;
+  background: #fff4e9;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.mise-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.mise-price-card {
+  position: relative;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.mise-price-card--recommended {
+  border: 2px solid var(--green);
+  box-shadow: var(--shadow-soft);
+}
+
+.mise-price-card__badge {
+  position: absolute;
+  top: -14px;
+  right: 14px;
+  padding: 3px 10px;
+  color: var(--white);
+  background: var(--green);
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.mise-price-card__label {
+  min-height: 1.7em;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.mise-price-card h3 {
+  margin: 5px 0 12px;
+  font-size: 1.22rem;
+}
+
+.mise-price-card__monthly {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: baseline;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mise-price-card__monthly span {
+  font-size: 0.82rem;
+}
+
+.mise-price-card__monthly strong {
+  font-size: clamp(1.8rem, 3vw, 2.25rem);
+  line-height: 1;
+}
+
+.mise-price-card__setup {
+  margin: 13px 0 4px;
+  font-size: 0.9rem;
+}
+
+.mise-price-card > p:last-child {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.mise-tax {
+  font-size: 0.72rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.mise-tax-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+.mise-pricing-grid + .mise-tax-note + .center-cta {
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.mise-set-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mise-set-card {
+  display: grid;
+  align-content: start;
+  padding: 26px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--green);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.mise-set-card:nth-child(2) { border-top-color: var(--coral); }
+.mise-set-card:nth-child(3) { border-top-color: var(--blue); }
+
+.mise-set-card__label {
+  color: var(--green);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.mise-set-card h3 {
+  margin: 5px 0 14px;
+  font-size: 1.2rem;
+}
+
+.mise-set-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.mise-set-card li {
+  padding: 4px 9px;
+  color: var(--green-dark);
+  background: var(--soft);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.mise-set-card__price {
+  color: var(--green-dark);
+  font-size: 1.55rem;
+  font-weight: 900;
+}
+
+.mise-set-card > p:last-child {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.mise-included-layout,
+.mise-setup-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.mise-check-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.mise-check-list li {
+  padding: 12px 14px 12px 38px;
+  background: var(--soft);
+  border-radius: 7px;
+  font-weight: 800;
+}
+
+.mise-check-list li::before {
+  left: 14px;
+}
+
+.mise-extra-card {
+  padding: 26px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.mise-extra-card h3 {
+  margin-bottom: 13px;
+}
+
+.mise-extra-card ul {
+  display: grid;
+  gap: 8px;
+}
+
+.mise-extra-card li::before {
+  content: "・";
+  color: var(--muted);
+}
+
+.mise-setup-list {
+  display: grid;
+  gap: 9px;
+  counter-reset: mise-setup;
+}
+
+.mise-setup-list li {
+  position: relative;
+  padding: 12px 14px 12px 52px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-weight: 800;
+  counter-increment: mise-setup;
+}
+
+.mise-setup-list li::before {
+  content: counter(mise-setup);
+  position: absolute;
+  top: 11px;
+  left: 14px;
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  color: var(--white);
+  background: var(--green);
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.mise-assurance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mise-assurance-grid article {
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.mise-assurance-grid h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.mise-assurance-grid p,
+.mise-assurance-note {
+  color: var(--muted);
+}
+
+.mise-assurance-note {
+  margin-top: 17px;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.mise-flow-list {
+  display: grid;
+  gap: 11px;
+  counter-reset: mise-flow;
+}
+
+.mise-flow-list li {
+  position: relative;
+  display: grid;
+  padding: 16px 18px 16px 68px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  counter-increment: mise-flow;
+}
+
+.mise-flow-list li::before {
+  content: counter(mise-flow);
+  position: absolute;
+  top: 17px;
+  left: 19px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--white);
+  background: var(--green);
+  border-radius: 50%;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.mise-flow-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  bottom: -12px;
+  width: 2px;
+  height: 12px;
+  background: var(--green);
+}
+
+.mise-flow-list span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.mise-monitor {
+  color: var(--white);
+  background: var(--green-dark);
+}
+
+.mise-monitor__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 46px;
+  align-items: center;
+}
+
+.mise-monitor h2,
+.mise-monitor strong {
+  color: var(--white);
+}
+
+.mise-monitor h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.35;
+}
+
+.mise-monitor__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 11px;
+  color: var(--ink);
+  background: var(--yellow);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.mise-monitor > .container > div:first-child > ul {
+  display: grid;
+  gap: 7px;
+  margin-top: 18px;
+  font-size: 1.12rem;
+  font-weight: 900;
+}
+
+.mise-monitor li::before {
+  color: var(--yellow);
+}
+
+.mise-monitor__offer {
+  padding: 28px;
+  color: var(--ink);
+  background: var(--white);
+  border-radius: 12px;
+}
+
+.mise-monitor__offer > p:first-child {
+  margin-bottom: 10px;
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+.mise-monitor__offer ul {
+  display: grid;
+  gap: 8px;
+}
+
+.mise-monitor__offer li::before {
+  color: var(--green);
+}
+
+.mise-monitor__permission {
+  margin: 16px 0;
+  padding-top: 14px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+}
+
+.btn--light {
+  color: var(--green-dark);
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.btn--light:hover {
+  color: var(--white);
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.mise-final-cta {
+  text-align: center;
+  background: linear-gradient(180deg, var(--white), #f4f7f4);
+}
+
+.mise-final-cta h2 {
+  margin: 7px 0 10px;
+  font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+  line-height: 1.35;
+}
+
+.mise-final-cta p {
+  color: var(--muted);
+}
+
+.mise-final-cta .btn {
+  margin-top: 22px;
+}
+
+@media (max-width: 1080px) {
+  .mise-sales-hero__grid,
+  .mise-included-layout,
+  .mise-setup-layout,
+  .mise-monitor__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mise-sales-price-panel {
+    max-width: 620px;
+  }
+
+  .mise-product-grid,
+  .mise-pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .mise-sales-hero {
+    padding: 42px 0 50px;
+  }
+
+  .mise-sales-hero__grid {
+    gap: 30px;
+  }
+
+  .mise-sales-hero__title {
+    font-size: clamp(2.25rem, 11vw, 3.4rem);
+  }
+
+  .mise-problem-grid,
+  .mise-product-grid,
+  .mise-pricing-grid,
+  .mise-set-grid,
+  .mise-check-list,
+  .mise-assurance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mise-price-card__label {
+    min-height: 0;
+  }
+
+  .mise-tax-note {
+    text-align: left;
+  }
+}
+
+@media (max-width: 520px) {
+  .mise-sales-hero__lead br {
+    display: none;
+  }
+
+  .mise-sales-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .mise-sales-price-panel,
+  .mise-sales-product,
+  .mise-price-card,
+  .mise-set-card,
+  .mise-extra-card,
+  .mise-monitor__offer {
+    padding: 20px;
+  }
+
+  .mise-sales-price-panel__price strong {
+    font-size: 3.45rem;
+  }
+
+  .mise-problem-grid p {
+    padding-right: 14px;
+  }
+
+  .mise-flow-list li {
+    padding-left: 60px;
+  }
+}

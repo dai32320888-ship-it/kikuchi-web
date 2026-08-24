@@ -102,6 +102,18 @@ const CONTACT_LINKS = {
   var status = document.getElementById("form-status");
 
   if (form) {
+    var requestedTopic = new URLSearchParams(window.location.search).get("topic");
+    var topicSelect = form.elements.topic;
+    if (requestedTopic === "mise" && topicSelect) {
+      topicSelect.value = "みせシリーズ";
+    }
+    if (requestedTopic === "mise-monitor" && topicSelect) {
+      topicSelect.value = "みせシリーズ無料モニター";
+      if (form.elements.message && !form.elements.message.value) {
+        form.elements.message.value = "みせシリーズの無料モニターについて相談したいです。";
+      }
+    }
+
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
