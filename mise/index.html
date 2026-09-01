@@ -35,22 +35,19 @@
   </head>
   <body>
     <a class="skip-link" href="#main">本文へスキップ</a>
-    <header class="site-header" id="top">
-      <div class="container site-header__inner">
-        <a class="brand" href="../" aria-label="菊地Web制作所 トップページへ">
-          <span class="brand__name">菊地Web制作所</span>
-          <span class="brand__tagline">熊本の小さなお店向けマーケター</span>
+    <header class="header-v2 is-scrolled" id="site-header">
+      <div class="container header-v2__inner">
+        <a class="header-v2__brand" href="../">
+          <span class="header-v2__name">菊地Web制作所</span>
+          <span class="header-v2__tag">みせシリーズ</span>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
-          <span class="nav-toggle__bar" aria-hidden="true"></span><span class="nav-toggle__bar" aria-hidden="true"></span><span class="nav-toggle__bar" aria-hidden="true"></span>
-        </button>
-        <nav class="site-nav" id="site-nav" aria-label="みせシリーズ ページ内ナビゲーション">
-          <a class="site-nav__link" href="#products">6つの商品</a>
-          <a class="site-nav__link" href="#pricing">料金</a>
-          <a class="site-nav__link" href="#sets">おすすめセット</a>
-          <a class="site-nav__link" href="#monitor">無料モニター</a>
-          <a class="site-nav__link" href="#faq">よくある質問</a>
-          <a class="site-nav__link site-nav__link--cta" href="../?topic=mise#contact" data-track="mise-consultation">無料で相談する</a>
+        <button class="header-v2__toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="メニュー"><span></span><span></span><span></span></button>
+        <nav class="header-v2__nav" id="main-nav" aria-label="みせシリーズ">
+          <a class="header-v2__link" href="#products">6つの商品</a>
+          <a class="header-v2__link" href="#pricing">料金</a>
+          <a class="header-v2__link" href="#sets">セット</a>
+          <a class="header-v2__link" href="#faq">FAQ</a>
+          <a class="header-v2__cta" href="../?topic=mise#contact">無料相談</a>
         </nav>
       </div>
     </header>
@@ -90,13 +87,16 @@
       <section class="section section--soft" id="products" aria-labelledby="products-title">
         <div class="container">
           <div class="section-heading"><p class="section-heading__label">6つの業務アプリ</p><h2 class="section-heading__title" id="products-title">今のお店に必要なものだけ選べます</h2><p class="section-heading__text">どの商品も、基本は代表者・店長が店舗のWindows PCで操作します。スタッフ全員のスマホ登録は必要ありません。</p></div>
-          <div class="mise-product-grid">
+          <div class="swipe-rail-wrap">
+            <p class="swipe-rail__hint" aria-hidden="true"><span>← スワイプできます →</span></p>
+            <div class="mise-product-grid swipe-rail swipe-rail--mise-products" tabindex="0" role="region" aria-label="みせシリーズ6商品">
             <article class="mise-sales-product" id="nippo"><div class="mise-sales-product__icon" aria-hidden="true">日</div><p class="mise-sales-product__for">飲食店・小売店・サービス店</p><h3>みせ日報</h3><p class="mise-sales-product__catch">毎日の売上と振り返りを、ひとつに。</p><p>売上や客数、営業メモを残し、毎日の店の状態をあとから振り返れます。</p><ul><li>売上・客数・客単価</li><li>営業メモ・良かったこと・問題点</li><li>月次集計・CSV</li></ul></article>
             <article class="mise-sales-product" id="shift"><div class="mise-sales-product__icon" aria-hidden="true">勤</div><p class="mise-sales-product__for">スタッフのいる小規模店舗</p><h3>みせシフト</h3><p class="mise-sales-product__catch">店長がサッと作れる、シンプルなシフト管理。</p><p>スタッフを登録し、店長がPCで月間シフト表を作るためのアプリです。</p><ul><li>スタッフ・月間シフト</li><li>出退勤・休日・勤務時間集計</li><li>印刷・PDF・CSV</li></ul><p class="mise-sales-product__note">スタッフ本人がスマホ入力するサービスではありません。</p></article>
             <article class="mise-sales-product" id="zaiko"><div class="mise-sales-product__icon" aria-hidden="true">在</div><p class="mise-sales-product__for">飲食店・小売店・サロン</p><h3>みせ在庫</h3><p class="mise-sales-product__catch">入庫・出庫・棚卸を記録して、在庫を見える化。</p><p>残り少ない商品と発注候補が分かり、数え間違いや発注忘れを減らせます。</p><ul><li>商品登録・入庫・出庫</li><li>棚卸・発注点・発注候補</li><li>履歴・CSV</li></ul></article>
             <article class="mise-sales-product" id="yoyaku"><div class="mise-sales-product__icon" aria-hidden="true">予</div><p class="mise-sales-product__for">飲食店・理美容店・予約制店舗</p><h3>みせ予約</h3><p class="mise-sales-product__catch">電話や来店予約を、PCで見やすく整理。</p><p>電話や店頭で受けた予約を、店長がPCへ入力して管理します。</p><ul><li>日時・顧客名・人数・内容</li><li>来店済み・キャンセル</li><li>検索・CSV</li></ul><p class="mise-sales-product__note">お客様がスマホから申し込むWeb予約ではありません。</p></article>
             <article class="mise-sales-product" id="carte"><div class="mise-sales-product__icon" aria-hidden="true">歴</div><p class="mise-sales-product__for">理容室・美容室・サロン</p><h3>みせカルテ</h3><p class="mise-sales-product__catch">お客様の施術履歴を、すぐに確認。</p><p>顧客情報、来店履歴、施術内容や写真をまとめ、次回来店時に確認できます。</p><ul><li>顧客情報・来店履歴</li><li>施術内容・メモ・写真</li><li>検索・保護できるバックアップ</li></ul></article>
             <article class="mise-sales-product" id="bottle"><div class="mise-sales-product__icon" aria-hidden="true">瓶</div><p class="mise-sales-product__for">居酒屋・スナック・バー</p><h3>みせボトル</h3><p class="mise-sales-product__catch">キープボトルを、名前ですぐ検索。</p><p>誰のボトルか、銘柄や残量、最終来店などをすぐに探せます。</p><ul><li>顧客・銘柄・残量</li><li>開栓日・最終来店・メモ</li><li>名前・よみ・銘柄検索</li></ul></article>
+            </div>
           </div>
         </div>
       </section>
@@ -182,8 +182,8 @@
       </section>
     </main>
 
-    <div class="mobile-sticky-cta" id="mobile-cta"><a class="btn btn--primary" href="../?topic=mise-monitor#contact" data-track="mise-mobile-consultation">無料モニターについて相談する</a><button type="button" class="mobile-sticky-cta__close" aria-label="固定CTAを閉じる" title="閉じる">×</button></div>
-    <footer class="site-footer"><div class="container site-footer__inner"><p class="site-footer__brand">菊地Web制作所</p><p class="site-footer__tag">熊本の小さなお店向け Web制作・SNS運用・集客改善・みせシリーズ</p><p class="site-footer__links"><a href="../">トップページ</a>　<a href="../services/">サービス・料金</a>　<a href="../?topic=mise#contact">お問い合わせ</a></p><p class="site-footer__copy">&copy; <span id="year"></span> 菊地Web制作所</p></div></footer>
+    <div class="sticky-cta-v2" id="sticky-cta"><a class="btn-v2 btn-v2--primary" href="../?topic=mise-monitor#contact">無料モニター相談</a><button type="button" class="sticky-cta-v2__close" aria-label="閉じる">×</button></div>
+    <footer class="footer-v2"><div class="container"><p class="footer-v2__brand">菊地Web制作所</p><p>熊本の小さなお店向け Web制作・SNS・みせシリーズ</p><p style="margin-top:12px"><a href="../">トップ</a> · <a href="../services/">サービス</a></p><p style="margin-top:16px;opacity:0.6">&copy; <span id="year"></span> 菊地Web制作所</p></div></footer>
     <script src="../script.js"></script>
   </body>
 </html>

@@ -1,0 +1,32 @@
+{
+  "name": "kikuchi-web",
+  "version": "1.0.0",
+  "description": "熊本の個人店・小規模店舗向けに、Web制作・集客改善・みせシリーズを案内する営業サイトです。",
+  "main": "script.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "check:site": "node scripts/check-site.mjs",
+    "check:contact": "node scripts/check-contact.mjs",
+    "qa:interactions": "node scripts/audit-v2-interactions.mjs",
+    "qa:screenshots": "node scripts/capture-v2-screenshots.mjs",
+    "test": "npm run check:site && npm run check:contact"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dai32320888-ship-it/kikuchi-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "bugs": {
+    "url": "https://github.com/dai32320888-ship-it/kikuchi-web/issues"
+  },
+  "homepage": "https://github.com/dai32320888-ship-it/kikuchi-web#readme"
+}

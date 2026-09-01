@@ -1,4 +1,7 @@
 screenshots/
+qa/screenshots/
 test-results/
 .playwright/
 .publish-backup/
+node_modules/
+instagram/tools/.browser-profile/

@@ -78,6 +78,16 @@ const products = ["みせ日報", "みせシフト", "みせ在庫", "みせ予�
 const requiredSections = ["products", "pricing", "sets", "monitor", "faq"];
 const prices = ["980", "2,480", "2,980", "3,980", "11,000", "22,000", "27,500", "33,000"];
 
+for (const match of home.matchAll(/<img\b[^>]*>/gi)) {
+  const tag = match[0];
+  report(/\salt=["'][^"']*["']/i.test(tag), `index.html: altのない画像があります ${tag.slice(0, 90)}`);
+  report(/\swidth=["']\d+["']/i.test(tag) && /\sheight=["']\d+["']/i.test(tag), `index.html: width/heightのない画像があります ${tag.slice(0, 90)}`);
+  if (!/hero-tram\.jpg/i.test(tag)) report(/\sloading=["']lazy["']/i.test(tag), `index.html: Hero以外の画像にlazy loadがありません ${tag.slice(0, 90)}`);
+}
+report(home.includes("hero-tram-mobile.webp") && home.includes("hero-tram-desktop.webp"), "index.html: Heroのモバイル/PC向けWebPがありません");
+report(!/japan-street-night|restaurant-dining/.test(home), "index.html: 場所・出典未確認の画像が参照されています");
+report(!/fonts\.googleapis|fonts\.gstatic/.test(home), "index.html: 外部Webフォントによるブロッキング読込が残っています");
+
 for (const product of products) report(mise.includes(product), `mise/index.html: ${product} がありません`);
 report((mise.match(/class="mise-sales-product"/g) || []).length === 6, "mise/index.html: 商品カードは6件必要です");
 for (const id of requiredSections) report(idsOf(mise).includes(id), `mise/index.html: #${id} がありません`);
@@ -105,12 +115,15 @@ report(script.includes('topicSelect.value = "みせシリーズ無料モニタ�
 report(script.includes('みせシリーズの無料モニターについて相談したいです。'), "script.js: モニター相談文がありません");
 report(script.includes('window.location.href =') && script.includes('CONTACT_LINKS.email'), "script.js: メール作成画面への遷移がありません");
 
-const css = fs.readFileSync(path.join(root, "style.css"), "utf8");
+const css = ["style.css", "css/v2.css", "css/legacy-pages.css"]
+  .map((file) => fs.readFileSync(path.join(root, file), "utf8"))
+  .join("\n");
 report(css.includes("overflow-x: clip"), "style.css: 横スクロール抑止がありません");
+report(css.includes("prefers-reduced-motion: reduce"), "style.css: reduced motion対応がありません");
 for (const width of [1080, 760, 520]) {
   report(css.includes(`@media (max-width: ${width}px)`), `style.css: ${width}pxのレスポンシブ指定がありません`);
 }
-report(/\.btn\s*\{[\s\S]*?min-height:\s*50px/.test(css), "style.css: ボタンのタップ領域が不足しています");
+report(/\.btn(?:-v2)?\s*\{[\s\S]*?min-height:\s*5[0-9]px/.test(css), "style.css: ボタンのタップ領域が不足しています");
 let cssDepth = 0;
 for (const character of css.replace(/\/\*[\s\S]*?\*\//g, "")) {
   if (character === "{") cssDepth += 1;
